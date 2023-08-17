@@ -1,22 +1,25 @@
-import React, { Component } from 'react';
-import { Route, Routes } from 'react-router-dom';
-import AppRoutes from './AppRoutes';
-import { Layout } from './components/Layout';
-import './custom.css';
+import { Col, Container, Row, Card, CardHeader, CardBody, Button } from "reactstrap"
+import TablaContacto from "./Components/TablaContacto"
 
-export default class App extends Component {
-  static displayName = App.name;
-
-  render() {
+const App = () => {
     return (
-      <Layout>
-        <Routes>
-          {AppRoutes.map((route, index) => {
-            const { element, ...rest } = route;
-            return <Route key={index} {...rest} element={element} />;
-          })}
-        </Routes>
-      </Layout>
-    );
-  }
+        <Container>
+            <Row className="mt-5">
+                <Col sm="12">
+                    <Card>
+                        <CardHeader>
+                            <h5>Lista de Contacto</h5>
+                        </CardHeader>
+                        <CardBody>
+                            <Button size="sm" color="success">Nuevo Contacto</Button>
+                            <hr></hr>
+                            <TablaContacto/>
+                        </CardBody>
+                    </Card>
+                </Col>
+            </Row>
+        </Container>
+    )
 }
+
+export default App;
